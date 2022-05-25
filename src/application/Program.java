@@ -12,11 +12,12 @@ public class Program {
     public static void main(String[] args) {
 
 
-        String path = "c:\\temp\\in.txt";
+        String pathIn = "c:\\temp\\in.txt";
+        String pathOut = "c:\\temp\\out.txt";
 
         List<Product> list = new ArrayList<Product>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(pathIn))) {
 
             String line = br.readLine();
             line = br.readLine();
@@ -33,10 +34,8 @@ public class Program {
                 line = br.readLine();
             }
 
-            String pathOut = "c:\\temp\\out.txt";
-
-            try(BufferedWriter bw = new BufferedWriter(new FileWriter(pathOut))) {
-                for(Product p : list){
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathOut))) {
+                for (Product p : list) {
                     bw.write(String.valueOf(p));
                     bw.newLine();
                 }
